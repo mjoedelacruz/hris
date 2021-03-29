@@ -81,5 +81,11 @@ Route::group(['middleware' => 'api'], function ($router) {
         Route::get('/roles/move/move-down',    'RolesController@moveDown')->name('roles.down');
     });
     //my personal api
-    Route::resource('mike',        'MyController');
+    Route::resource('mike', 'MyController');
+    Route::resource('rets', 'RetsController');
+
+    Route::prefix('mike')->group(function () {
+        Route::get('/showProfile/{id}', 'MyController@showProfile');
+    });
+
 });
