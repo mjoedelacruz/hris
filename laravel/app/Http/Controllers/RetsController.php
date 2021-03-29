@@ -84,18 +84,30 @@ class RetsController extends Controller
     public function show($id)
     {
         $import = new Imports;
-        $doc = $import->getCredentials($id);
-        dd($doc);
+       return $doc = $import->getCredentials($id);
+
+        //dd($doc);
+        // try {
+        //     $import = new Imports;
+        //     $doc = $import->getCredentials($id);
+        //     dd($doc);
+        // } catch (\Throwable $th) {
+        //     dd($th->getMessage());
+        // }
+
+        $rets_version = $doc->rets_version ?? $doc->server_metadata['system']['rets_version'];
+
 
         $config = new Configuration;
-        $config ->setLoginUrl('https://matrixrets.ntreis.net/rets/Login.ashx')
-                ->setUsername('PlacesterInc')
-                ->setPassword('x!7UV.B2')
-                ->setRetsVersion('1.8');
+        $config ->setLoginUrl($doc->url)
+                ->setUsername($doc->username)
+                ->setPassword($doc->password)
+                ->setRetsVersion($rets_version);
 
         $rets = new Session($config);
         $connect = $rets->Login();
-        $results = $rets->Search('Property', 'Listing', "MLSNumber={$id}", ['Limit' =>10, 'Select' => '*']);
+        $results = $rets->Search('Property', 'CrossProperty', "(StandardStatus=|A,U,P,C),(ListingKeyNumeric=0+)", ['Limit' =>1]);
+        //$results = $rets->Search('Property', 'CrossProperty', "StandardStatus=A", ['Limit' =>10, 'Select' => '*']);
         return [
             "data"=> $results->toArray(),
             "total"=>$results->getTotalResultsCount()
