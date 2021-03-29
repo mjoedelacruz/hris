@@ -5,7 +5,7 @@ error_reporting(0);
 use Illuminate\Http\Request;
 use PHRETS\Configuration;
 use PHRETS\Session;
-
+use App\Models\Imports;
 class RetsController extends Controller
 {
     /**
@@ -83,6 +83,10 @@ class RetsController extends Controller
      */
     public function show($id)
     {
+        $import = new Imports;
+        $doc = $import->getCredentials($id);
+        dd($doc);
+
         $config = new Configuration;
         $config ->setLoginUrl('https://matrixrets.ntreis.net/rets/Login.ashx')
                 ->setUsername('PlacesterInc')
