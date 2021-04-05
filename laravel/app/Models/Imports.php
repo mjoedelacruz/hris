@@ -12,6 +12,10 @@ class Imports extends Model
 
     public function getCredentials($id)
     {
-        return self::find($id);
+        $import = self::find($id);
+        if (!$import){
+            abort (404,"Full data scan is running");
+        }
+        return $import;
     }
 }

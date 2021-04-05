@@ -4,11 +4,11 @@ const mix = require('laravel-mix');
 
 
 mix.webpackConfig({
-   resolve: {
-      alias: {
-         "@": ".."
-      }
-   }
+    resolve: {
+        alias: {
+            "@": ".."
+        }
+    }
 });
 
 
@@ -25,8 +25,6 @@ mix.webpackConfig({
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css');
 
-mix.copy('../coreui/public', 'public');
-
-
+mix.copy('resources/js/coreui/public', 'public');

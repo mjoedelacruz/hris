@@ -95,8 +95,8 @@ class RetsController extends Controller
         //     dd($th->getMessage());
         // }
 
-        $rets_version = $doc->rets_version ?? $doc->server_metadata['system']['rets_version'];
-
+         $rets_version = $doc->rets_version ?? $doc->server_metadata['system']['rets_version'];
+            //$rets_version);
 
         $config = new Configuration;
         $config ->setLoginUrl($doc->url)
