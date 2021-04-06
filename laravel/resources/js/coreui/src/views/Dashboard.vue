@@ -3,29 +3,7 @@
     <WidgetsDropdown/>
     <CCard>
       <CCardBody>
-        <CRow>
-          <CCol sm="5">
-            <h4 id="traffic" class="card-title mb-0">Traffic</h4>
-            <div class="small text-muted">November 2017</div>
-          </CCol>
-          <CCol sm="7" class="d-none d-md-block">
-            <CButton color="primary" class="float-right">
-              <CIcon name="cil-cloud-download"/>
-            </CButton>
-            <CButtonGroup class="float-right mr-3">
-              <CButton
-                color="outline-secondary"
-                v-for="(value, key) in ['Day', 'Month', 'Year']"
-                :key="key"
-                class="mx-0"
-                :pressed="value === selected ? true : false"
-                @click="selected = value"
-              >
-                {{value}}
-              </CButton>
-            </CButtonGroup>
-          </CCol>
-        </CRow>
+
         <MainChartExample style="height:300px;margin-top:40px;"/>
       </CCardBody>
       <CCardFooter>

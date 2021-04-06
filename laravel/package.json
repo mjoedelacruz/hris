@@ -8,12 +8,10 @@
         "github": "https://github.com/coreui",
         "twitter": "https://twitter.com/core_ui"
     },
-    "contributors": [
-        {
-            "name": "CoreUI Team",
-            "url": "https://github.com/orgs/coreui/people"
-        }
-    ],
+    "contributors": [{
+        "name": "CoreUI Team",
+        "url": "https://github.com/orgs/coreui/people"
+    }],
     "homepage": "http://coreui.io",
     "copyright": "Copyright 2020 creativeLabs Łukasz Holeczek",
     "license": "MIT",

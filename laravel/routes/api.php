@@ -83,6 +83,8 @@ Route::group(['middleware' => 'api'], function ($router) {
     //my personal api
     Route::resource('mike', 'MyController');
     Route::resource('rets', 'RetsController');
+   // Route::resource('solr', 'SolrController');
+   // Route::get('/solr/ping', 'SolrController@ping');
 
     Route::prefix('mike')->group(function () {
         Route::get('/showProfile/{id}', 'MyController@showProfile');
